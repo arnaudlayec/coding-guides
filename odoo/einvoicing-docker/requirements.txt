@@ -1,2 +1,4 @@
 factur-x
+unidecode
+phonenumbers # optional, for base_business_document_import_phone
 pyfrctc

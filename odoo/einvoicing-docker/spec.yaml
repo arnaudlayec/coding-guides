@@ -11,6 +11,7 @@ fr-einvoicing:
       - l10n_fr_einvoicing_dashboard_banner # Optional
       - l10n_fr_einvoicing_import
       - l10n_fr_einvoicing_payment_batch_oca # Optional, needed only with "account_payment_batch_oca" (e.g. SEPA payments)
+      - l10n_fr_einvoicing_sale
       # - l10n_fr_einvoicing_purchase # Optional, quite specific (not a mirror of 'xxx_sale'!)
   src: https://github.com/akretion/fr-einvoicing 18.0
 
@@ -28,6 +29,11 @@ account-invoicing:
     - account_invoice_check_total # Optional
   src: https://github.com/OCA/account-invoicing 18.0
 
+account-payment:
+  modules:
+    - account_payment_method_base
+  src: https://github.com/oca/account-payment 18.0
+
 bank-payment-alternative:
   modules:
     - account_payment_base_oca
@@ -36,8 +42,10 @@ bank-payment-alternative:
 
 community-data-files:
   modules:
+    - account_payment_unece
     - account_tax_unece # PR 227
     - base_unece
+    - uom_unece
   remotes:
     oca: https://github.com/oca/community-data-files
   merges:
@@ -53,6 +61,11 @@ edi:
     oca: https://github.com/oca/edi
   merges:
     - oca 18.0
+
+intrastat:
+  modules:
+    - intrastat_base
+  src: https://github.com/oca/intrastat 18.0
 
 l10n-france:
   modules:
