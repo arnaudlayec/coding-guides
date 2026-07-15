@@ -57,7 +57,7 @@ community-data-files:
     oca: https://github.com/oca/community-data-files
   merges:
     - oca 18.0
-    - oca refs/pull/227/head
+    - oca refs/pull/277/head
 
 edi:
   modules:
