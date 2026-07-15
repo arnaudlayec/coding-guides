@@ -13,7 +13,14 @@ fr-einvoicing:
       - l10n_fr_einvoicing_payment_batch_oca # Optional, needed only with "account_payment_batch_oca" (e.g. SEPA payments)
       - l10n_fr_einvoicing_sale
       # - l10n_fr_einvoicing_purchase # Optional, quite specific (not a mirror of 'xxx_sale'!)
-  src: https://github.com/akretion/fr-einvoicing 18.0
+  # src: https://github.com/akretion/fr-einvoicing 18.0
+  remotes:
+    ak: https://github.com/akretion/fr-einvoicing
+  # remove the patch when superpdp can send to ChorusPro
+  merges:
+    - ak 18.0
+  shell_command_after:
+    - git am ../../patches/fr-einvoicing/*
 
 #=====================
 #======== OCA ========

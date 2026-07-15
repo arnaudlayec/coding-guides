@@ -8,12 +8,18 @@ This folder contains the minimum content that must be copied in Odoo projects fi
 
 
 
-# Warning
-Former modules managing Chorus invoicing are incompatible with `fr-einvoicing`. The 2 following modules must be uninstalled before installing `fr-einvoicing` ones:
+# Warning with Chorus
+
+Former modules managing Chorus invoicing are incompatible with `fr-einvoicing`.
+The 2 following modules must be uninstalled before installing `fr-einvoicing` ones:
 - `account_einvoice_generate`
 - `l10n_fr_chorus_facturx`
 
-If you really need to keep Chorus module, see the branch [18.0-tmp_hack_chorus](https://github.com/akretion/fr-einvoicing/tree/18.0-tmp_hack_chorus) and the Framavox topic.
+###### How to continue invoicing to public customer via Chorus?
+SUPER PDP will start supporting sending invoices to Chorus on September 1st 2026. It does not support it at the moment.
+If you need to keep invoicing to public customer via Chorus:
+- factur-x generation on invoices for the public sector are already disabled. This is done by the `patch` on `fr-einvoicing` (see `spec.yaml`)
+- you can deposit them manually on the web portal of Chorus Pro and go through the OCR
 
 
 

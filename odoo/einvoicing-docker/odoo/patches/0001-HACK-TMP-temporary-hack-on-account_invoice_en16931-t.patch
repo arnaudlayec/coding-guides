@@ -1,0 +1,31 @@
+From bc4402403804e8ea8987127a403d39f493f25d12 Mon Sep 17 00:00:00 2001
+From: Olivier Nibart <olivier.nibart@akretion.com.br>
+Date: Wed, 15 Jul 2026 16:00:12 +0200
+Subject: [PATCH] [HACK][TMP] temporary hack on account_invoice_en16931 to
+ avoid embedding facturx in invoices for public entities
+
+---
+ account_invoice_en16931/models/account_move.py | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/account_invoice_en16931/models/account_move.py b/account_invoice_en16931/models/account_move.py
+index c9ddc8a..2320cf6 100644
+--- a/account_invoice_en16931/models/account_move.py
++++ b/account_invoice_en16931/models/account_move.py
+@@ -826,6 +826,13 @@ class AccountMove(models.Model):
+             and self.partner_id
+             and self.state != "cancel"
+             and self.invoice_line_ids.filtered(lambda x: x.display_type == "product")
++            # TEMPORARY HACK: SUPER PDP will start supporting sending invoices
++            # to chorus on september 1st 2026 (it doesn't support it at the moment)
++            # So I disable factur-x generation on invoices for the public sector
++            # so that you can deposit them manually on the web portal of Chorus Pro
++            # and go through the OCR
++            and hasattr(self, "fr_directory_partner_entity_type")
++            and self.fr_directory_partner_entity_type != "public"
+         ):
+             return variant
+         else:
+-- 
+2.54.0
+
