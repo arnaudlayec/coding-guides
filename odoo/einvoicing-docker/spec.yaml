@@ -1,0 +1,72 @@
+
+#=====================
+#===== AKRETION ======
+#=====================
+
+fr-einvoicing:
+  modules:
+      - account_invoice_en16931
+      - l10n_fr_account_invoice_en16931
+      - l10n_fr_einvoicing
+      - l10n_fr_einvoicing_dashboard_banner # Optional
+      - l10n_fr_einvoicing_import
+      - l10n_fr_einvoicing_payment_batch_oca # Optional, needed only with "account_payment_batch_oca" (e.g. SEPA payments)
+      # - l10n_fr_einvoicing_purchase # Optional, quite specific (not a mirror of 'xxx_sale'!)
+  src: https://github.com/akretion/fr-einvoicing 18.0
+
+#=====================
+#======== OCA ========
+#=====================
+
+account-financial-tools:
+  modules:
+    - account_dashboard_banner # Needed only for "l10n_fr_einvoicing_dashboard_banner"
+  src: https://github.com/oca/account-financial-tools 18.0
+
+account-invoicing:
+  modules:
+    - account_invoice_check_total # Optional
+  src: https://github.com/OCA/account-invoicing 18.0
+
+bank-payment-alternative:
+  modules:
+    - account_payment_base_oca
+    - account_payment_batch_oca
+  src: https://github.com/oca/bank-payment-alternative 18.0
+
+community-data-files:
+  modules:
+    - account_tax_unece # PR 227
+    - base_unece
+  remotes:
+    oca: https://github.com/oca/community-data-files
+  merges:
+    - oca 18.0
+    - oca refs/pull/227/head
+
+edi:
+  modules:
+    - account_invoice_import
+    - base_business_document_import
+    - base_business_document_import_phone # Optional
+  remotes:
+    oca: https://github.com/oca/edi
+  merges:
+    - oca 18.0
+
+l10n-france:
+  modules:
+    - l10n_fr_account_tax_unece
+    - l10n_fr_siret
+    - l10n_fr_siret_account
+  src: https://github.com/oca/l10n-france 18.0
+
+sale-workflow:
+  modules:
+    - sale_commercial_partner
+  src: https://github.com/oca/sale-workflow 18.0
+
+server-tools:
+    modules:
+       - base_view_inheritance_extension
+    src: https://github.com/oca/server-tools 18.0

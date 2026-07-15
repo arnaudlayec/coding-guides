@@ -1,0 +1,15 @@
+services:
+  saxon-server:
+    restart: always
+    image: ghcr.io/willemvlh/saxon-server:latest
+    container_name: saxon-server
+    volumes:
+      - ./xsd_and_schematron:/xsd_and_schematron
+    environment:
+      - JAVA_OPTS=-Xmx1g
+    command: ["java", "-jar", "app.jar"] 
+    networks:
+      - traefik
+networks:
+  traefik:
+    external: true

@@ -1,0 +1,8 @@
+saxon-server:
+  stage: maintenance
+  script:
+    - docker compose -f saxon-traefik.docker-compose.yml down
+    - docker compose -f saxon-traefik.docker-compose.yml up -d
+  when: manual
+  rules:
+    - if: $AK_IS_MAJOR_BRANCH == "true"

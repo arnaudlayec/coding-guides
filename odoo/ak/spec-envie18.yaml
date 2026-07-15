@@ -1,0 +1,407 @@
+odoo:
+    modules:
+        - account
+        - account_payment
+        - analytic
+        - auth_oauth
+        - auth_password_policy_portal
+        - auth_signup
+        - auth_totp
+        - auth_totp_mail
+        - auth_totp_portal
+        - barcodes
+        - barcodes_gs1_nomenclature
+        - base_iban
+        - base_import
+        - base_import_module
+        - base_install_request
+        - base_setup
+        - base_sparse_field
+        - base_vat
+        - board
+        - bus
+        - calendar
+        - contacts
+        - delivery
+        - digest
+        - hr
+        - hr_timesheet
+        - hr_work_entry_contract
+        - html_editor
+        - http_routing
+        - iap
+        - iap_mail
+        - l10n_fr
+        - l10n_fr_account
+        - mail
+        - mail_bot
+        - mass_mailing
+        - mrp
+        - mrp_account
+        - onboarding
+        - payment
+        - payment_adyen
+        - payment_aps
+        - payment_asiapay
+        - payment_authorize
+        - payment_buckaroo
+        - payment_custom
+        - payment_demo
+        - payment_flutterwave
+        - payment_mercado_pago
+        - payment_mollie
+        - payment_nuvei
+        - payment_paypal
+        - payment_razorpay
+        - payment_razorpay_oauth
+        - payment_stripe
+        - payment_worldline
+        - payment_xendit
+        - phone_validation
+        - portal
+        - privacy_lookup
+        - product
+        - project
+        - project_account
+        - project_mail_plugin
+        - project_mrp
+        - project_mrp_account
+        - project_mrp_sale
+        - project_purchase
+        - project_purchase_stock
+        - project_sale_expense
+        - project_stock_account
+        - project_timesheet_holidays
+        - project_stock
+        - purchase
+        - purchase_mrp
+        - purchase_stock
+        - resource
+        - resource_mail
+        - sale
+        - sale_async_emails
+        - sale_crm
+        - sale_expense
+        - sale_management
+        - sale_mrp
+        - sale_purchase_project
+        - sale_purchase
+        - sale_purchase_stock
+        - sale_project
+        - sale_project_stock_account
+        - sale_project_stock
+        - sale_stock
+        - sale_stock_margin
+        - sales_team
+        - sale_timesheet
+        - sale_timesheet_margin
+        - spreadsheet
+        - spreadsheet_dashboard
+        - stock
+        - stock_account
+        - stock_dropshipping
+        - stock_delivery
+        - uom
+        - utm
+        - web
+        - web_editor
+        - web_tour
+        - web_unsplash
+        - website
+    src: https://github.com/odoo/odoo 18.0
+
+account-closing:
+    modules:
+        - account_invoice_start_end_dates
+    src: https://github.com/OCA/account-closing 18.0
+
+account-closing-cutoff-base:
+    modules:
+        - account_cutoff_base
+    src: https://github.com/akretion/account-closing 18-mig-account_cutoff_base
+
+account-closing-cutoff-start-end-date:
+    modules:
+        - account_cutoff_start_end_dates
+    src: https://github.com/akretion/account-closing 18-mig-account_cutoff_start_end_dates
+
+account-invoicing:
+    modules:
+        - account_move_tier_validation
+    src: https://github.com/OCA/account-invoicing 18.0
+
+account-financial-tools:
+    modules:
+        - account_lock_date_update
+        - account_move_name_sequence
+        - account_asset_management
+        - account_usability
+        - account_fiscal_position_vat_check
+          #src: https://github.com/OCA/account-financial-tools 18.0
+    remotes:
+      oca: https://github.com/OCA/account-financial-tools
+      ak: https://github.com/akretion/account-financial-tools
+    merges:
+      - remote: oca
+        ref: 18.0
+      - remote: ak
+        ref: 18-fix-first-period-month-amount-prorata
+      - remote: ak
+        ref: 18-create-asset-line-on-import
+
+account-financial-tools-payment-method-base:
+    modules:
+        - account_payment_method_base
+    src: https://github.com/akretion/account-financial-tools 18-add-account_payment_method_base
+
+account-financial-reporting:
+    modules:
+        - account_financial_report
+    src: https://github.com/OCA/account-financial-reporting 18.0
+
+account-move-import:
+    modules:
+        - account_move_csv_import
+    src: https://github.com/akretion/account-move-import 18.0
+
+account-reconcile:
+    modules:
+        - account_reconcile_model_oca
+        - account_reconcile_oca
+        - account_statement_base
+    src: https://github.com/OCA/account-reconcile 18.0
+
+ak-cloud-france-oi:
+    modules:
+        - attachment_asset_in_db
+        - auth_oidc_akretion_data
+        - database_age_cron
+    src: https://github.com/akretion/ak-cloud-france-oi/ 18.0
+
+bank-payment-alternative-base-oca:
+    modules:
+        - account_payment_base_oca
+    src: https://github.com/akretion/bank-payment-alternative 18-add-account_payment_base_oca
+
+bank-payment-alternative-batch-oca:
+    modules:
+        - account_payment_batch_oca
+    src: https://github.com/akretion/bank-payment-alternative 18-mig-account_payment_order
+
+bank-payment-alternative-sepa-base:
+    modules:
+        - account_payment_sepa_base
+    src: https://github.com/akretion/bank-payment-alternative 18-mig-account_banking_pain_base
+
+bank-payment-alternative-sepa-credit-transfer:
+    modules:
+        - account_payment_sepa_credit_transfer
+    src: https://github.com/akretion/bank-payment-alternative 18-mig-account_banking_sepa_credit_transfer
+
+bank-statement-import:
+    modules:
+        - account_statement_import_base
+        - account_statement_import_online
+        - account_statement_import_file
+        - account_statement_import_ofx
+        - account_statement_import_file_reconcile_oca
+    src: https://github.com/OCA/bank-statement-import 18.0
+
+bank-statement-import-ponto:
+    modules:
+        - account_statement_import_online_ponto
+    src: https://github.com/StefanRijnhart/bank-statement-import 18.0-mig-account_statement_import_online_ponto
+
+bank-statement-reconcile-simple:
+    modules:
+        - account_statement_completion_label_simple
+    src: https://github.com/akretion/bank-statement-reconcile-simple 18.0
+
+community-data-files:
+    modules:
+        - account_payment_unece
+        - account_tax_unece
+        - base_unece
+        - l10n_eu_nace
+        - uom_unece
+    src: https://github.com/OCA/community-data-files 18.0
+
+credit-control:
+    modules:
+        - account_invoice_overdue_reminder
+        - account_invoice_overdue_warn
+        - account_invoice_overdue_warn_sale
+    src: https://github.com/OCA/credit-control 18.0
+
+currency:
+    modules:
+        - currency_rate_update
+    src: https://github.com/OCA/currency 18.0
+
+edi-base-facturx:
+    modules:
+        - base_facturx
+    src: https://github.com/akretion/edi 18-mig-base_facturx
+
+edi-invoice-facturx:
+    modules:
+        - account_invoice_facturx
+    src: https://github.com/akretion/edi 18-mig-account_invoice_facturx
+
+edi-einvoice-generate:
+    modules:
+        - account_einvoice_generate
+    src: https://github.com/akretion/edi 18-mig-account_einvoice_generate
+
+intrastat-extrastat:
+    modules:
+        - intrastat_base
+        - intrastat_product
+        - product_harmonized_system
+        - product_harmonized_system_delivery
+        - product_harmonized_system_stock
+    src: https://github.com/OCA/intrastat-extrastat 18.0
+
+l10n-france:
+    modules:
+        - l10n_fr_siret
+        - l10n_fr_siret_account
+        - l10n_fr_cog
+        - l10n_fr_das2
+        - l10n_fr_intrastat_product
+        - l10n_fr_account_tax_unece
+        - l10n_fr_department
+        - l10n_fr_state
+    src: https://github.com/OCA/l10n-france 18.0
+
+l10n-france-chorus:
+    modules:
+        - l10n_fr_chorus_account
+        - l10n_fr_chorus_sale
+        - l10n_fr_chorus_facturx
+    src: https://github.com/akretion/l10n-france 18-mig-chorus
+
+l10n-france-account-oca:
+    modules:
+        - l10n_fr_account_oca
+    src: https://github.com/akretion/l10n-france 18-add-l10n_fr_account_oca
+
+l10n-france-invoice-facturx:
+    modules:
+        - l10n_fr_account_invoice_facturx
+    src: https://github.com/akretion/l10n-france 18-mig-l10n_fr_account_invoice_facturx
+
+l10n-france-vat-return:
+    modules:
+        - l10n_fr_account_vat_return
+    src: https://github.com/akretion/l10n-france 18-mig-vat
+
+l10n-france-mis-report:
+    modules:
+        - l10n_fr_mis_reports
+    src: https://github.com/akretion/l10n-france 18-mig-l10n_fr_mis_reports
+
+mis-builder:
+    modules:
+        - mis_builder
+    src: https://github.com/OCA/mis-builder 18.0
+
+multi-company:
+    modules:
+        - account_invoice_inter_company
+    src: https://github.com/OCA/multi-company 18.0
+
+odoo-import-helper:
+    modules:
+        - import_helper_base
+        - partner_import_helper
+    src: https://github.com/akretion/odoo-import-helper 18.0
+
+odoo-usability:
+    modules:
+        - base_usability_akretion
+        - account_usability_akretion
+        - mrp_usability_akretion
+        - product_usability_akretion
+        - purchase_stock_usability_akretion
+        - purchase_usability_akretion
+        - sale_stock_usability_akretion
+        - sale_usability_akretion
+        - stock_usability_akretion
+        - eradicate_quick_create
+    src: https://github.com/akretion/odoo-usability 18.0
+
+partner-contact-bank-type-constraint:
+    modules:
+        - partner_bank_acc_type_constraint
+    src: https://github.com/akretion/partner-contact 18-mig-partner_bank_acc_type_constraint
+
+product-variant:
+    modules:
+        - product_variant_sale_price
+    src: https://github.com/OCA/product-variant 18.0
+
+reporting-engine:
+    modules:
+        - report_xlsx
+        - report_xlsx_helper
+    src: https://github.com/OCA/reporting-engine 18.0
+
+sale-workflow:
+    modules:
+        - sale_commercial_partner
+    src: https://github.com/OCA/sale-workflow 18.0
+
+server-auth:
+    modules:
+        - auth_oidc
+        - auth_oidc_environment
+    src: https://github.com/OCA/server-auth 18.0
+
+server-auth-cross-client:
+    modules:
+        - cross_connect_client
+    src: https://github.com/akretion/server-auth 18.0-mig-cross_connect_client
+
+server-env:
+    modules:
+        - server_environment
+        - server_environment_ir_config_parameter
+        - mail_environment
+        - data_encryption
+        - server_environment_data_encryption
+    src: https://github.com/OCA/server-env 18.0
+
+server-tools:
+    modules:
+        - base_view_inheritance_extension
+        - onchange_helper
+        - sentry
+        - bus_alt_connection
+    src: https://github.com/OCA/server-tools 18.0
+
+server-ux:
+    modules:
+        - base_tier_validation
+        - date_range
+        - server_action_mass_edit
+        - server_action_mass_edit_onchange
+    src: https://github.com/OCA/server-ux 18.0
+
+support-support:
+    modules:
+        - support
+    src: https://github.com/akretion/support 18.0-mig-support
+
+support-support-akretion:
+    modules:
+        - support_akretion
+    src: https://github.com/akretion/support 18.0-mig-support_akretion
+
+web:
+    modules:
+        - web_environment_ribbon
+        - web_responsive
+        - web_chatter_position
+        - web_m2x_options
+    src: https://github.com/OCA/web 18.0

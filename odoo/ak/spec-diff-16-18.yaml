@@ -1,0 +1,70 @@
+./compare_oca_module_16_18.sh:
+  modules:
+    - 
+    # v16.0 max as of 07-07-2025:
+    # - 
+  src: https://github.com/oca/./compare_oca_module_16_18.sh 18.0
+
+akretion:
+  modules:
+    - 
+    # v16.0 max as of 07-07-2025:
+    # - 
+  src: https://github.com/oca/akretion 18.0
+
+akretion:
+  modules:
+    - 
+    # v16.0 max as of 07-07-2025:
+    # - 
+  src: https://github.com/oca/akretion 18.0
+
+akretion:
+  modules:
+    - 
+    # v16.0 max as of 07-07-2025:
+    # - 
+  src: https://github.com/./compare_oca_module_16_18.sh/akretion 18.0
+
+repos_akretion:
+  modules:
+    - 
+    # v16.0 max as of 07-07-2025:
+    # - 
+  src: https://github.com/akretion/repos_akretion 18.0
+
+repos_akretion:
+  modules:
+    - 
+    # v16.0 max as of 07-07-2025:
+    # - 
+  src: https://github.com/akretion/repos_akretion 18.0
+
+account-payment:
+  modules:
+    - 
+    # v16.0 max as of 07-07-2025:
+    # - 
+  src: https://github.com/akretion/account-payment 18.0
+
+bank-payment-alternative:
+  modules:
+    - 
+    # v16.0 max as of 07-07-2025:
+    # - 
+  src: https://github.com/oca/bank-payment-alternative 18.0
+
+bank-payment-alternative:
+  modules:
+    - 
+    # v16.0 max as of 07-07-2025:
+    # - 
+  src: https://github.com/oca/bank-payment-alternative 18.0
+
+odoo-import_helper:
+  modules:
+    - 
+    # v16.0 max as of 07-07-2025:
+    # - 
+  src: https://github.com/akretion/odoo-import_helper 18.0
+
