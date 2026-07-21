@@ -2496,7 +2496,7 @@ l10n-france-mis-report:
 l10n-france-fec-oca:
   modules:
       - l10n_fr_fec_oca
-  src: https://github.com/akretion/l10n-france 18.0-mig-l10n_fr_fec_oca
+  src: https://github.com/akretion/l10n-france 18.0-mig-l10n_fr_fec_oca-fix-depends
 
 odoo-usability:
   modules:
