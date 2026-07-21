@@ -50,14 +50,10 @@ bank-payment-alternative:
 community-data-files:
   modules:
     - account_payment_unece
-    - account_tax_unece # PR 227
+    - account_tax_unece
     - base_unece
     - uom_unece
-  remotes:
-    oca: https://github.com/oca/community-data-files
-  merges:
-    - oca 18.0
-    - oca refs/pull/277/head
+  src: https://github.com/oca/community-data-files 18.0
 
 edi:
   modules:
