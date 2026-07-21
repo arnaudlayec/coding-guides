@@ -1,12 +1,12 @@
 
 Framavox topic: https://framavox.org/d/hUjmO3gZ/premi-re-release-v18-s-rieuse-
 
-
-
 # Purpose
 This folder contains the minimum content that must be copied in Odoo projects files to install the French einvoicing, for projects installed with Akretion tooling like `ak` and `docky`.
 
 
+# Prequisites
+Ask Akretion team to allow the customer's Odoo URL in Super PDP's portal of Akretion.
 
 # Warning with Chorus
 
@@ -22,8 +22,13 @@ If you need to keep invoicing to public customer via Chorus:
 - you can deposit them manually on the web portal of Chorus Pro and go through the OCR
 
 
-
 # Configurations
+
+### Environment
+Add:
+- `fr_ctc_superpdp_client_id=${SUPERPDP_CLIENT_ID}` in `odoo.cfg.tmpl` if not already here
+- `SUPERPDP_CLIENT_ID` in `prod.secrets.docker-compose.yml`
+For more info, see https://github.com/akretion/docky-odoo-template-shared/pull/64/changes
 
 ### Docker
 - `prod.docker-compose.yml`: to launch Saxon java server and to make Odoo depend of it
@@ -36,7 +41,6 @@ If you need to keep invoicing to public customer via Chorus:
 
 ### CI
 - `.gitlab-ci.yml`
-
 
 
 # Final test
