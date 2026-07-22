@@ -32,8 +32,11 @@ They will whitelist it in the Akretion account of Super PDP's portal.
 ### Uninstall incompatible module
 The module following module **must** be uninstalled before installing `fr-einvoicing` ones: `account_einvoice_generate`. This must be done **before** installing `fr-einvoicing` modules, else they will fail to isntall.
 
-1. Remove it from your `__manifest__.py`
-2. Uninstall from Odoo interface
+1. Remove it from your `__manifest__.py`, as well as any modules using it in dependency such as:
+    - account_invoice_facturx
+    - l10n_fr_account_invoice_facturx
+    - l10n_fr_chorus_facturx
+2. Put these modules in `/scripts/module_to_uninstall.py`
 
 ### Secret
 See: https://github.com/akretion/docky-odoo-template-shared/pull/64/changes
@@ -54,6 +57,7 @@ See: https://github.com/akretion/docky-odoo-template-shared/pull/64/changes
 
 
 
-# Onboarding: soon enough!
+# Onboarding in Super PDP from Odoo
 
-https://www.youtube.com/watch?v=nOa_mjovVXQ
+Tutorial (only onboarding): https://docs.google.com/document/d/12NIvGn-M_tbhyneJqlIh6s7K2-FVfUZJ/edit
+Video (all fr-einvoicing): https://www.youtube.com/watch?v=nOa_mjovVXQ
