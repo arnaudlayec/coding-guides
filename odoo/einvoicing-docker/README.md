@@ -41,6 +41,7 @@ The module following module **must** be uninstalled before installing `fr-einvoi
 ### Secret
 See: https://github.com/akretion/docky-odoo-template-shared/pull/64/changes
 - `odoo.cfg.tmpl`: add `fr_ctc_superpdp_client_id=${SUPERPDP_CLIENT_ID}`
+- `answers.sh`: add `declare -x SUPERPDP_CLIENT_ID="${SUPERPDP_CLIENT_ID:-}"`
 - `prod.secrets.docker-compose.yml`: add `SUPERPDP_CLIENT_ID`
 
 ### Docker
