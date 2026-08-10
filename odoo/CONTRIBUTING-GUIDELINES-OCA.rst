@@ -1,0 +1,1 @@
+oca/odoo-community.org/website/Contribution/CONTRIBUTING.rst
