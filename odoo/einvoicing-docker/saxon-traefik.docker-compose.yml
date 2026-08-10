@@ -5,7 +5,7 @@ services:
     container_name: saxon-server
     environment:
       - JAVA_OPTS=-Xmx1g
-    command: ["java", "-jar", "app.jar", "--insecure"]
+    command: ["--insecure"]
     networks:
       - traefik
 networks:
