@@ -19,8 +19,6 @@ fr-einvoicing:
   # remove the patch when superpdp can send to ChorusPro
   merges:
     - ak 18.0
-  shell_command_after:
-    - git am ../../patches/fr-einvoicing/*
 
 #=====================
 #======== OCA ========
