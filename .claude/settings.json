@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ak build *)",
+      "Bash(git reset *)"
+    ]
+  }
+}
