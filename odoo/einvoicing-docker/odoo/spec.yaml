@@ -56,8 +56,12 @@ community-data-files:
 edi:
   modules:
     - account_invoice_import
+    - account_invoice_import_facturx
     - base_business_document_import
     - base_business_document_import_phone # Optional
+    - base_ubl
+    - base_ubl_parse
+    - account_invoice_import_ubl
   remotes:
     oca: https://github.com/oca/edi
   merges:
