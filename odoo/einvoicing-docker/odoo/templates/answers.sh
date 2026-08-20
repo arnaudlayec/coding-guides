@@ -1,0 +1,1 @@
+declare -x SUPERPDP_CLIENT_ID="${SUPERPDP_CLIENT_ID:-}"
