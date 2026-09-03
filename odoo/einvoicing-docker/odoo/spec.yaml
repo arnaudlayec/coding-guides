@@ -74,6 +74,7 @@ intrastat:
 
 l10n-france:
   modules:
+    - l10n_fr_account_invoice_import_facturx
     - l10n_fr_account_tax_unece
     - l10n_fr_siret
     - l10n_fr_siret_account
