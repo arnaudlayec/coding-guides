@@ -1,4 +1,4 @@
 factur-x>=6.7
 unidecode
 phonenumbers # optional, for base_business_document_import_phone
-pyfrctc>=0.15
+pyfrctc>=0.16
