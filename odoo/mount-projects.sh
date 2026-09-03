@@ -1,11 +1,36 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Dossier racine contenant __src__ et tous les dossiers projets
-ROOT="/home/arnaud/dev/odoo/18.0"
+# Usage: ./mount-projects.sh <version>
+# Ex:    ./mount-projects.sh 18.0
+
+VERSION="${1:-}"
+
+if [ -z "$VERSION" ]; then
+  echo "Usage: $0 <version>  (ex: 16.0, 18.0, 19.0)" >&2
+  exit 1
+fi
+
+# Dossier racine contenant __src__ et tous les dossiers projets, par version
+ROOT="/home/arnaud/dev/odoo/$VERSION"
+
+case "$VERSION" in
+  16.0)
+    PROJECTS=("aluval-dockyfied" "apileau")
+    ;;
+  18.0)
+    PROJECTS=("aiguebelle" "envie" "flavigny" "goldservice" "demo")
+    ;;
+  19.0)
+    PROJECTS=("training")
+    ;;
+  *)
+    echo "⚠️  Version '$VERSION' inconnue, pas de liste de projets définie." >&2
+    exit 1
+    ;;
+esac
 
 SRC_DIR="$ROOT/__src__"
-PROJECTS=("aiguebelle" "envie" "flavigny" "goldservice" "demo")
 SUBDIRS=("src" "external-src")
 
 for project in "${PROJECTS[@]}"; do
