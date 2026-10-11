@@ -4,24 +4,20 @@ Framavox topic: https://framavox.org/d/hUjmO3gZ/premi-re-release-v18-s-rieuse-
 # Purpose
 This folder contains the minimum content that must be copied in Odoo projects files to install the French einvoicing, for projects installed with Akretion tooling like `ak` and `docky`.
 
-# Prequisites
+# Light onboarding
 
-# WARNING: specific case with Chorus (when invoicing public customers)
-SUPER PDP will start supporting sending invoices to Chorus only on September 1st 2026. It does not support it at the moment. However, all companies must be registered in the public e-invoicing directory of the France before September 1st 2026.
-
-For customers requiring to invoice public entities, there is a simple in-between solution:
+For customers only requiring to subscribe to the France directory with Akretion billing without receiving invoices in Odoo, there is a simple solution:
 1. **Only** install the onboarding module [l10n_fr_einvoicing_onboarding](https://github.com/akretion/fr-einvoicing/pull/29)
 2. Onboard your customer's company(ies) in Super PDP
+3. If needed later, install all other modules and prerequisites. The customer will need to follow again the onboarding process just to get the Super PDP token again.
 
-Compared to below tutorial, adapted prerequisites are:
-- Odoo URL whitelisting: yes
-- Uninstall incompatible module: not needed
-- Secret: yes
-- Docker: not needed
-- Odoo modules: update `spec.yaml` but only for `l10n_fr_einvoicing_onboarding` on branch `akretion/fr-einvoicing 18-einvoicing_onboarding`
-- Python library: only `pyfrctc` in `requirements.txt`
-- `__manifest__.py`: only `l10n_fr_einvoicing_onboarding`
+# Chorus invoicing : SPECIFIC CASE (B2G : invoicing to government entities)
+SUPER PDP does not support sending invoices to Chorus yet. We except it will do in a stable way in 2026.
 
+Install `l10n_fr_chorus_en16931`, which replaces `l10n_fr_chorus_facturx`. It allows Chorusinvoices to be automatically sent, with a dependency of the module `account_invoice_en16931` instead of the legacy `account_invoice_facturx` (for FacturX generation).
+(!) PLEASE LOOK AT THE README.md of `l10n_fr_chorus_en16931` for install procedure.
+
+Blog post: https://framavox.org/d/o3A1hZFn/connecteur-chorus-pro-et-nouveaux-modules-einvoicing
 
 # Configuration
 
@@ -62,3 +58,12 @@ See: https://github.com/akretion/docky-odoo-template-shared/pull/64/changes
 
 Tutorial (only onboarding): https://docs.google.com/document/d/12NIvGn-M_tbhyneJqlIh6s7K2-FVfUZJ/edit
 Video (all fr-einvoicing): https://www.youtube.com/watch?v=nOa_mjovVXQ
+
+
+# Adapatation for v16.0
+
+
+
+### Uninstall
+
+- account_einvoice_generate

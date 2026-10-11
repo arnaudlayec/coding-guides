@@ -7,18 +7,14 @@ fr-einvoicing:
   modules:
       - account_invoice_en16931
       - l10n_fr_account_invoice_en16931
+      - l10n_fr_chorus_en16931  # Needed to send invoice to Chorus Pro until Super PDP supports it
       - l10n_fr_einvoicing
       - l10n_fr_einvoicing_dashboard_banner # Optional
       - l10n_fr_einvoicing_import
       - l10n_fr_einvoicing_payment_batch_oca # Optional, needed only with "account_payment_batch_oca" (e.g. SEPA payments)
       - l10n_fr_einvoicing_sale
       # - l10n_fr_einvoicing_purchase # Optional, quite specific (not a mirror of 'xxx_sale'!)
-  # src: https://github.com/akretion/fr-einvoicing 18.0
-  remotes:
-    ak: https://github.com/akretion/fr-einvoicing
-  # remove the patch when superpdp can send to ChorusPro
-  merges:
-    - ak 18.0
+  src: https://github.com/akretion/fr-einvoicing 18.0
 
 #=====================
 #======== OCA ========
@@ -62,10 +58,12 @@ edi:
     - base_ubl
     - base_ubl_parse
     - account_invoice_import_ubl
+  # src: https://github.com/oca/edi 18.0
   remotes:
     oca: https://github.com/oca/edi
   merges:
     - oca 18.0
+    - oca refs/pull/1426/head # alexis-via: [18.0][IMP] account_invoice_import: big changes/improvements in the module !
 
 intrastat:
   modules:

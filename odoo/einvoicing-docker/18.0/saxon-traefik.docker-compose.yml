@@ -8,6 +8,19 @@ services:
     command: ["--insecure"]
     networks:
       - traefik
+networks:services:
+  saxon-server:
+    restart: always
+    image: ghcr.io/willemvlh/saxon-server:latest
+    container_name: saxon-server
+    environment:
+      - JAVA_OPTS=-Xmx1g
+    command: ["--insecure"]
+    networks:
+      - traefik
 networks:
+  traefik:
+    external: true
+
   traefik:
     external: true
